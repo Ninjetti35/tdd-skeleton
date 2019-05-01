@@ -7,13 +7,18 @@ public class Flight {
 
     private String origin;
     private String destination;
-    private LocalTime takeoff;
-    private LocalTime landing;
+    private String takeoff;
+    private String landing;
    // private Amenities amenities;
-    private BigDecimal price;
+    private double price;
 
-    public Flight() {
-
+    public Flight(String origin, String destination, String takeoff, String landing
+    , double price) {
+        this.origin = origin;
+        this.destination = destination;
+        this.takeoff = takeoff;
+        this.landing = landing;
+        this.price = price;
     }
 
     public String getOrigin() {
@@ -32,29 +37,38 @@ public class Flight {
         this.destination = destination;
     }
 
-    public LocalTime getTakeoff() {
+    public String getTakeoff() {
         return takeoff;
     }
 
-    public void setTakeoff(LocalTime takeoff) {
+    public void setTakeoff(String takeoff) {
         this.takeoff = takeoff;
     }
 
-    public LocalTime getLanding() {
+    public String getLanding() {
         return landing;
     }
 
-    public void setLanding(LocalTime landing) {
+    public void setLanding(String landing) {
         this.landing = landing;
     }
 
-
-
-    public BigDecimal getPrice() {
+    public double getPrice() {
         return price;
     }
 
-    public void setPrice(BigDecimal price) {
+    public void setPrice(double price) {
         this.price = price;
+    }
+
+    @Override
+    public String toString() {
+        return "Flight{" +
+                "origin='" + origin + '\'' +
+                ", destination='" + destination + '\'' +
+                ", takeoff='" + takeoff + '\'' +
+                ", landing='" + landing + '\'' +
+                ", price=" + price +
+                '}';
     }
 }

@@ -11,9 +11,8 @@ public class FlightTest {
 
     @Test
     public void testDestination() {
-        Flight flight = new Flight();
-        flight.setDestination("LAX");
-        assertEquals(flight.getDestination(), "LAX");
+        Flight flight = new Flight("CAK Akron, OH", "CLE Cleveland, OH", "05/01/2019", "8:00 AM", 99);
+        assertEquals(flight.getDestination(), "CLE Cleveland, OH");
     }
 
     @Test
@@ -25,20 +24,28 @@ public class FlightTest {
 
     @Test
     public void testFindByOrigin() {
-        Flight flight = new Flight();
-        flight.setOrigin("LAX");
+        Flight flight = new Flight("CAK Akron, OH", "CLE Cleveland, OH", "05/01/2019", "8:00 AM", 99);
+        flight.setOrigin("CLE Cleveland, OH");
         Flights flights = new Flights();
         flights.addFlight(flight);
-        assertNotNull(flights.findByOrigin("LAX"));
+        assertNotNull(flights.findByOrigin("CLE Cleveland, OH"));
     }
 
     @Test
     public void testFindByDestination() {
-        Flight flight = new Flight();
-        flight.setDestination("LAX");
+        Flight flight = new Flight("CAK Akron, OH", "CLE Cleveland, OH", "05/01/2019", "8:00 AM", 99);
+        flight.setDestination("CLE Cleveland, OH");
         Flights flights = new Flights();
         flights.addFlight(flight);
-        assertNotNull(flights.findByDestination("LAX"));
+        assertNotNull(flights.findByDestination("CLE Cleveland, OH"));
+    }
+
+    @Test
+    public void testAddFlight() {
+        Flight flight = new Flight("CAK Akron, OH", "CLE Cleveland, OH", "05/01/2019", "8:00 AM", 99);
+        Flights flights = new Flights();
+        flights.addFlight(flight);
+        assertNotNull(flights);
     }
 
 
