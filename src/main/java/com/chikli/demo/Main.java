@@ -29,6 +29,7 @@ public class Main {
             System.out.println();
             System.out.println("Please select an option");
             System.out.println("1. Search flights");
+            System.out.println("2. Add a flight");
             System.out.println("0. Exit");
 
             int input = Integer.parseInt(reader.readLine());
@@ -52,6 +53,21 @@ public class Main {
                     String input4 = reader.readLine();
                     System.out.println(flights.findByDestination(input4).toString());
                 }
+            }
+
+            else if (input == 2) {
+                System.out.println("Enter a origin");
+                String origin = reader.readLine();
+                System.out.println("Enter a destination");
+                String destination = reader.readLine();
+                System.out.println("Enter a takeoff time");
+                String takeoff = reader.readLine();
+                System.out.println("Enter a landing time");
+                String landing = reader.readLine();
+                System.out.println("Enter a price");
+                double price = Double.parseDouble(reader.readLine());
+                Flight newFlight = new Flight(origin, destination, takeoff, landing, price);
+                flights.addFlight(newFlight);
             }
         }
     }
