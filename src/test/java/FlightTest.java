@@ -2,9 +2,9 @@ import com.chikli.demo.Flight;
 import com.chikli.demo.Flights;
 import org.junit.Test;
 
-import java.util.ArrayList;
 import java.util.List;
 
+import static org.hamcrest.CoreMatchers.is;
 import static org.junit.Assert.*;
 
 public class FlightTest {
@@ -19,7 +19,8 @@ public class FlightTest {
     @Test
     public void flightOriginDoesNotExist() {
         Flights flights = new Flights();
-        assertNull(flights.findByOrigin("LAX"));
+        List<Flight> listFlight = flights.findByOrigin("LAX");
+        assertThat(listFlight.isEmpty(), is(true));
     }
 
     @Test
