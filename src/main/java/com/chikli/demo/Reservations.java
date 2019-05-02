@@ -6,33 +6,21 @@ import java.util.List;
 public class Reservations {
 
     List<Reservation> reservationList = new ArrayList<>();
+    int reservationCounter = 0;
 
-    public Reservations() {
-
+    public Reservation getReservationById(int reservationId) {
+        for(Reservation reservation: reservationList) {
+            if(reservation.getReservationId() == reservationId) {
+                return reservation;
+            }
+        }
+        return null;
     }
 
-    public void addReservation(Reservation reservation) {
+    public int addReservation(Reservation reservation) {
+        reservationCounter++;
+        reservation.setReservationId(reservationCounter);
         reservationList.add(reservation);
+        return reservation.getReservationId();
     }
-/*
-    public List<Flight> findByOrigin(String origin) {
-        List<Flight> tempFlight = new ArrayList<>();
-        for(Flight flight : flightList) {
-            if(flight.getOrigin().equals(origin)) {
-                tempFlight.add(flight);
-            }
-        }
-        return tempFlight;
-    }
-
-    public List<Flight> findByDestination(String destination) {
-        List<Flight> tempFlight = new ArrayList<>();
-        for(Flight flight : flightList) {
-            if(flight.getDestination().equals(destination)) {
-                tempFlight.add(flight);
-            }
-        }
-        return tempFlight;
-    }
-*/
 }

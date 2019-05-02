@@ -5,6 +5,7 @@ import java.time.LocalTime;
 
 public class Flight {
 
+    private int flightNum;
     private String origin;
     private String destination;
     private String takeoff;
@@ -12,13 +13,22 @@ public class Flight {
    // private Amenities amenities;
     private double price;
 
-    public Flight(String origin, String destination, String takeoff, String landing
+    public Flight(int flightNum, String origin, String destination, String takeoff, String landing
     , double price) {
+        this.flightNum = flightNum;
         this.origin = origin;
         this.destination = destination;
         this.takeoff = takeoff;
         this.landing = landing;
         this.price = price;
+    }
+
+    public int getFlightNum() {
+        return flightNum;
+    }
+
+    public void setFlightNum(int flightNum) {
+        this.flightNum = flightNum;
     }
 
     public String getOrigin() {
@@ -64,6 +74,7 @@ public class Flight {
     @Override
     public String toString() {
         return "Flight:" + "\r\n" +
+                "Flight number: " + flightNum + "\r\n" +
                 "Leaving: " + origin + "\r\n" +
                 "Destination: " + destination + "\r\n" +
                 "Takeoff Time: " + takeoff + "\r\n" +

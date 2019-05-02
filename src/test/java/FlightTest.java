@@ -11,7 +11,7 @@ public class FlightTest {
 
     @Test
     public void testDestination() {
-        Flight flight = new Flight("CAK Akron, OH", "CLE Cleveland, OH", "05/01/2019", "8:00 AM", 99);
+        Flight flight = new Flight(1,"CAK Akron, OH", "CLE Cleveland, OH", "05/01/2019", "8:00 AM", 99);
         assertEquals(flight.getDestination(), "CLE Cleveland, OH");
     }
 
@@ -24,7 +24,7 @@ public class FlightTest {
 
     @Test
     public void testFindByOrigin() {
-        Flight flight = new Flight("CAK Akron, OH", "CLE Cleveland, OH", "05/01/2019", "8:00 AM", 99);
+        Flight flight = new Flight(1,"CAK Akron, OH", "CLE Cleveland, OH", "05/01/2019", "8:00 AM", 99);
         flight.setOrigin("CLE Cleveland, OH");
         Flights flights = new Flights();
         flights.addFlight(flight);
@@ -33,7 +33,7 @@ public class FlightTest {
 
     @Test
     public void testFindByDestination() {
-        Flight flight = new Flight("CAK Akron, OH", "CLE Cleveland, OH", "05/01/2019", "8:00 AM", 99);
+        Flight flight = new Flight(1,"CAK Akron, OH", "CLE Cleveland, OH", "05/01/2019", "8:00 AM", 99);
         flight.setDestination("CLE Cleveland, OH");
         Flights flights = new Flights();
         flights.addFlight(flight);
@@ -42,10 +42,18 @@ public class FlightTest {
 
     @Test
     public void testAddFlight() {
-        Flight flight = new Flight("CAK Akron, OH", "CLE Cleveland, OH", "05/01/2019", "8:00 AM", 99);
+        Flight flight = new Flight(1,"CAK Akron, OH", "CLE Cleveland, OH", "05/01/2019", "8:00 AM", 99);
         Flights flights = new Flights();
         flights.addFlight(flight);
         assertNotNull(flights);
+    }
+
+    @Test
+    public void searchByFlightNum() {
+        Flight flight = new Flight(1,"CAK Akron, OH", "CLE Cleveland, OH", "05/01/2019", "8:00 AM", 99);
+        Flights flights = new Flights();
+        flights.addFlight(flight);
+        assertEquals(flight, flights.searchByFlightNum(1));
     }
 
 

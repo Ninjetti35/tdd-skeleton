@@ -2,16 +2,41 @@ package com.chikli.demo;
 
 public class Reservation {
 
-    private Flight flight;
+    private int flightNum;
+    private int reservationId;
     private String name;
     private String creditCard;
     private int numReservations;
+    private String flightDate;
 
-    public void setFlight(Flight flight) {
+    public Reservation(int flightNum, String name,
+                       String creditCard, String flightDate) {
+        this.flightNum = flightNum;
+
     }
 
-    public Flight getFlight() {
-        return flight;
+    public int getReservationId() {
+        return reservationId;
+    }
+
+    public void setReservationId(int reservationId) {
+        this.reservationId = reservationId;
+    }
+
+    public String getFlightDate() {
+        return flightDate;
+    }
+
+    public void setFlightDate(String flightDate) {
+        this.flightDate = flightDate;
+    }
+
+    public int getFlightNum() {
+        return flightNum;
+    }
+
+    public void setFlightNum(int flightNum) {
+        this.flightNum = flightNum;
     }
 
     public String getName() {
@@ -36,5 +61,16 @@ public class Reservation {
 
     public void setNumReservations(int numReservations) {
         this.numReservations = numReservations;
+    }
+
+    @Override
+    public String toString() {
+        return "Reservation{" +
+                "reservationId=" + reservationId +
+                "flightNum=" + flightNum +
+                ", name='" + name + '\'' +
+                ", creditCard='" + creditCard + '\'' +
+                ", flightDate='" + flightDate + '\'' +
+                '}';
     }
 }

@@ -35,4 +35,13 @@ public class Flights {
         return tempFlight;
     }
 
+    public Flight searchByFlightNum(int flightNum) {
+        for(Flight flight: flightList) {
+            if(flight.getFlightNum()== flightNum) {
+                return flight;
+            }
+        }
+        return null;
+    }
+
 }

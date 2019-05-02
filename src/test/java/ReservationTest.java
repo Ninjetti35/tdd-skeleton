@@ -5,27 +5,15 @@ import org.junit.Test;
 
 import static org.hamcrest.MatcherAssert.assertThat;
 import static org.hamcrest.CoreMatchers.is;
+import static org.junit.Assert.assertEquals;
 
 public class ReservationTest {
 
     @Test
-    public void createReservation() {
+    public void addReservations() {
+        Reservation reservation = new Reservation(1, "John Doe", "1234 5678 9876 5432", "05/02/2019");
         Reservations reservations = new Reservations();
-        Reservation reservation = new Reservation();
-        Flight flight = new Flight("CAK Akron, OH", "CLE Cleveland, OH", "05/01/2019", "8:00 AM", 99);
 
-        flight.setDestination("LAX");
-        flight.setOrigin("ABC");
-        flight.setTakeoff("1700");
-        flight.setLanding("1800");
-        flight.setPrice(19.95);
-
-        reservation.setFlight(flight);
-        reservation.setName("John Doe");
-        reservation.setCreditCard("1234 5678 9876 5432");
-        reservation.setNumReservations(1);
-
-        reservations.addReservation(reservation);
-        assertThat(reservation.getNumReservations(), is(1));
+        assertEquals(reservations.addReservation(reservation), 1);
     }
 }
