@@ -43,12 +43,12 @@ public class Main {
                 System.out.println("2. Search by destination");
                 int input2 = Integer.parseInt(reader.readLine());
 
-                if (input == 1) {
+                if (input2 == 1) {
                     System.out.println("Enter a origin");
                     String input3 = reader.readLine();
                     System.out.println(flights.findByOrigin(input3).toString());
                 }
-                else if (input == 2) {
+                if (input2 == 2) {
                     System.out.println("Enter a destination");
                     String input4 = reader.readLine();
                     System.out.println(flights.findByDestination(input4).toString());
